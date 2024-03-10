@@ -2,10 +2,6 @@
 
 Inspired from MIT Scratch
 
-Deployed at (Desktop Only): https://mit-scratch-clone-peeyush-goyal.netlify.app/
-
-This project covers main features of 4 sections of MIT Scratch
-
 ## Features
 
 - Drag and Drop your favourite functions to the lists
