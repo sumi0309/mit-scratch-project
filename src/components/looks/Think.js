@@ -8,7 +8,7 @@ const ThinkMessage = ({ character, comp_id }) => {
     message: "",
     character_id: "",
   });
-  /* Display Think Message */
+
   const displayMessage = () => {
     const el = document.getElementById(`${character.active}-message-box`);
     const el2 = document.getElementById(`${character.active}-message-box1`);
@@ -56,7 +56,6 @@ const ThinkMessage = ({ character, comp_id }) => {
   );
 };
 
-// mapping state to component
 const mapStateToProps = (state) => {
   return {
     character: state.character,

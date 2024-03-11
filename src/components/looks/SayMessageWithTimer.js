@@ -9,7 +9,6 @@ const SayMessageWithTimer = ({ character, comp_id }) => {
     timer_for_msg: 0,
   });
 
-  /* Display Message with Timer */
   const displayMessage = () => {
     const el = document.getElementById(`${character.active}-message-box`);
     const el2 = document.getElementById(`${character.active}-message-box1`);
@@ -70,7 +69,6 @@ const SayMessageWithTimer = ({ character, comp_id }) => {
   );
 };
 
-// mapping state to component
 const mapStateToProps = (state) => {
   return {
     character: state.character,

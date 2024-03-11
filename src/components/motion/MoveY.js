@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 
-// Move Component for Sidebar
 const MoveY = ({ character, comp_id }) => {
   const [steps, setSteps] = useState(0);
 
-  // Function used for moiving Sprint in Y direction
   const handleClick = () => {
     const el = document.getElementById(`${character.active}-div`);
 
     var top = el.offsetTop;
     el.style.position = "relative";
-    el.style.top = top + steps + "px";
+    el.style.top = top - steps + "px";
   };
 
   return (
@@ -35,7 +33,6 @@ const MoveY = ({ character, comp_id }) => {
   );
 };
 
-// mapping state to component
 const mapStateToProps = (state) => {
   return {
     character: state.character,

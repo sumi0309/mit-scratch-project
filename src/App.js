@@ -6,19 +6,22 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { connect } from "react-redux";
 
 function App({ complist, update_list }) {
-  // Update Lists of Mid Area
   const onDragEnd = (result) => {
     let element = result.draggableId.split("-")[0];
 
     const old_list = complist.midAreaLists;
-    let source_index = old_list.findIndex((x) => x.id === result.source.droppableId);
+    let source_index = old_list.findIndex(
+      (x) => x.id === result.source.droppableId
+    );
     if (source_index > -1) {
       let comp_list = old_list[source_index].comps;
       comp_list.splice(result.source.index, 1);
       old_list[source_index].comps = comp_list;
     }
 
-    let dest_index = old_list.findIndex((x) => x.id === result.destination.droppableId);
+    let dest_index = old_list.findIndex(
+      (x) => x.id === result.destination.droppableId
+    );
 
     if (dest_index > -1) {
       let dest_comp_list = old_list[dest_index].comps;
@@ -46,7 +49,6 @@ function App({ complist, update_list }) {
   );
 }
 
-// mapping state to props
 const mapStateToProps = (state) => {
   return {
     complist: state.list,

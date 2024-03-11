@@ -12,7 +12,6 @@ import HideMessage from "./looks/HideMessage";
 import MoveY from "./motion/MoveY";
 import Think from "./looks/Think";
 
-// fetch components based on different keys
 export const getComponent = (key, id) => {
   switch (key) {
     case "MOVE_Y":

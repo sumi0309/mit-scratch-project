@@ -7,7 +7,6 @@ import Paper from "@material-ui/core/Paper";
 const TurnClockWise = ({ character, characterAngle, comp_id }) => {
   const [angle, setAngle] = useState(0);
 
-  // handle turn clockwise component
   const handleClick = () => {
     const el = document.getElementById(character.active);
     const character_angle = character.characters.find(
@@ -46,14 +45,12 @@ const TurnClockWise = ({ character, characterAngle, comp_id }) => {
   );
 };
 
-// mapping state to component
 const mapStateToProps = (state) => {
   return {
     character: state.character,
   };
 };
 
-// mapping function to component
 const mapDispatchToProps = (dispatch) => {
   return {
     characterAngle: (angle) => dispatch(setCharacterAngle(angle)),

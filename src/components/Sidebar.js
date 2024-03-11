@@ -9,14 +9,22 @@ export default function Sidebar() {
       <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
         Side Bar
       </div>
-      {/* Motion */}
+
       <div className="font-bold"> {"Motion"} </div>
       <Droppable droppableId="sideArea-motion" type="COMPONENTS">
         {(provided) => (
-          <ul className="sideArea-motion my-3" {...provided.droppableProps} ref={provided.innerRef}>
+          <ul
+            className="sideArea-motion my-3"
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
             {motionComponents.map((x, i) => {
               return (
-                <Draggable key={`${x}-sideArea`} draggableId={`${x}-sideArea`} index={i}>
+                <Draggable
+                  key={`${x}-sideArea`}
+                  draggableId={`${x}-sideArea`}
+                  index={i}
+                >
                   {(provided) => (
                     <li
                       ref={provided.innerRef}
@@ -35,14 +43,21 @@ export default function Sidebar() {
         )}
       </Droppable>
 
-      {/* Looks */}
       <div className="font-bold"> {"Looks"} </div>
       <Droppable droppableId="sideArea-looks" type="COMPONENTS">
         {(provided) => (
-          <ul className="sideArea-looks my-3" {...provided.droppableProps} ref={provided.innerRef}>
+          <ul
+            className="sideArea-looks my-3"
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
             {looksComponents.map((x, i) => {
               return (
-                <Draggable key={`${x}-sideArea`} draggableId={`${x}-sideArea`} index={i}>
+                <Draggable
+                  key={`${x}-sideArea`}
+                  draggableId={`${x}-sideArea`}
+                  index={i}
+                >
                   {(provided) => (
                     <li
                       ref={provided.innerRef}

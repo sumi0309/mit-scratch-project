@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 
 const HideMessage = ({ character, comp_id }) => {
-  /* Hide Message */
   const displayMessage = () => {
     window.clearTimeout();
     const el = document.getElementById(`${character.active}-message-box`);
@@ -25,7 +24,6 @@ const HideMessage = ({ character, comp_id }) => {
   );
 };
 
-// mapping state to props
 const mapStateToProps = (state) => {
   return {
     character: state.character,

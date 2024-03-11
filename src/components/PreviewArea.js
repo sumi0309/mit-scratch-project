@@ -16,36 +16,37 @@ function PreviewArea({ character }) {
 
     e = e || window.event;
     e.preventDefault();
-    // get the mouse cursor position at startup:
+
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
+
     document.onmousemove = elementDrag;
   }
 
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
+
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
 
     elmnt.style.top = elmnt.offsetTop - pos2 + "px";
     elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
   }
 
   function closeDragElement() {
-    /* stop moving when mouse button is released:*/
     document.onmouseup = null;
     document.onmousemove = null;
   }
 
   return (
-    <div className="w-full flex-none h-full overflow-y-auto p-3" id="preview_area">
+    <div
+      className="w-full flex-none h-full overflow-y-auto p-3"
+      id="preview_area"
+    >
       <div className="flex justify-between mb-10">
         <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
           Preview Area
@@ -59,6 +60,7 @@ function PreviewArea({ character }) {
               key={i}
               className={`absolute`}
               onMouseDown={(e) => dragMouseDown(e, `${x.id}-${i}`)}
+              style={{ top: "250px", left: "75px" }}
             >
               <div id={`${x.id}-div`} className="character">
                 <div
@@ -79,14 +81,12 @@ function PreviewArea({ character }) {
   );
 }
 
-// mapping state to props
 const mapStateToProps = (state) => {
   return {
     character: state.character,
   };
 };
 
-// mapping functions to components
 const mapDispatchToProps = (dispatch) => {
   return {
     set_active: (ch_id) => dispatch(setActive(ch_id)),

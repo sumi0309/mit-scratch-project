@@ -10,7 +10,6 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { blue } from "@material-ui/core/colors";
 import Paper from "@material-ui/core/Paper";
 
-// Styling for MaterialUI Components
 const useStyles = makeStyles(() =>
   createStyles({
     button: {
@@ -19,7 +18,6 @@ const useStyles = makeStyles(() =>
   })
 );
 
-// Customized button for Running Lists
 const RunButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(blue[700]),
@@ -31,7 +29,6 @@ const RunButton = withStyles((theme) => ({
   },
 }))(Button);
 
-// Mid Area Component
 function MidArea({ area_list, add_list, event_values }) {
   const classes = useStyles();
   const eventFire = (el, etype) => {
@@ -44,67 +41,20 @@ function MidArea({ area_list, add_list, event_values }) {
     }
   };
 
-  // Handle Running the list
   const handleClick = (arr, id) => {
     if (arr.length === 0) return;
     let i = 0;
-
-    let repeat = 1;
-
     let str1 = `comp${arr[i]}-${id}-${i}`;
-
-    // Handle Wait at first index
-    if (arr[i] === "WAIT") {
-      let str2 = `comp${arr[i]}-${id}-${i}`;
-      let last_time = new Date().getTime();
-      let curr_time = new Date().getTime();
-
-      while ((curr_time - last_time) / 1000 < event_values.wait[str2] - 2) {
-        curr_time = new Date().getTime();
-      }
-    }
-
-    // Handle Repeat at first index
-    else if (arr[i] !== "REPEAT") {
-      eventFire(document.getElementById(str1), "click");
-    } else {
-      repeat = event_values.repeat[str1] + 1;
-    }
+    eventFire(document.getElementById(str1), "click");
     i++;
 
-    /* Each function execution takes 2 seconds */
     var cnt = setInterval(() => {
       if (i === arr.length) {
         clearInterval(cnt);
       }
-
-      // Handle Wait
-      if (arr[i] === "WAIT") {
-        let str2 = `comp${arr[i]}-${id}-${i}`;
-        let last_time = new Date().getTime();
-        let curr_time = new Date().getTime();
-
-        while ((curr_time - last_time) / 1000 < event_values.wait[str2] - 2) {
-          curr_time = new Date().getTime();
-        }
-        i++;
-      }
-      // Handle Repeat Component at current index
-      else if (arr[i] === "REPEAT") {
-        let str2 = `comp${arr[i]}-${id}-${i}`;
-        repeat = repeat * (event_values.repeat[str2] + 1);
-        i++;
-      }
-      // If Repeat component is at previous index
-      else if (arr[i - 1] === "REPEAT" && repeat > 2) {
-        let str2 = `comp${arr[i]}-${id}-${i}`;
-        eventFire(document.getElementById(str2), "click");
-        repeat--;
-      } else {
-        let str2 = `comp${arr[i]}-${id}-${i}`;
-        eventFire(document.getElementById(str2), "click");
-        i++;
-      }
+      let str2 = `comp${arr[i]}-${id}-${i}`;
+      eventFire(document.getElementById(str2), "click");
+      i++;
     }, 2000);
   };
 
@@ -120,7 +70,12 @@ function MidArea({ area_list, add_list, event_values }) {
             variant="contained"
             className={classes.button}
             startIcon={<PlayArrowIcon />}
-            onClick={() => handleClick(area_list?.midAreaLists[0]?.comps, area_list?.midAreaLists[0]?.id)}
+            onClick={() =>
+              handleClick(
+                area_list?.midAreaLists[0]?.comps,
+                area_list?.midAreaLists[0]?.id
+              )
+            }
           >
             Run{" "}
           </RunButton>
@@ -135,14 +90,22 @@ function MidArea({ area_list, add_list, event_values }) {
                   <Droppable droppableId={l.id} type="COMPONENTS">
                     {(provided) => {
                       return (
-                        <ul className={`${l.id} w-full h-full`} {...provided.droppableProps} ref={provided.innerRef}>
+                        <ul
+                          className={`${l.id} w-full h-full`}
+                          {...provided.droppableProps}
+                          ref={provided.innerRef}
+                        >
                           {l.comps &&
                             l.comps.map((x, i) => {
                               let str = `${x}`;
                               let component_id = `comp${str}-${l.id}-${i}`;
 
                               return (
-                                <Draggable key={`${str}-${l.id}-${i}`} draggableId={`${str}-${l.id}-${i}`} index={i}>
+                                <Draggable
+                                  key={`${str}-${l.id}-${i}`}
+                                  draggableId={`${str}-${l.id}-${i}`}
+                                  index={i}
+                                >
                                   {(provided) => (
                                     <li
                                       ref={provided.innerRef}
@@ -171,7 +134,6 @@ function MidArea({ area_list, add_list, event_values }) {
   );
 }
 
-// mapping state to props
 const mapStateToProps = (state) => {
   return {
     area_list: state.list,

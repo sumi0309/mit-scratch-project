@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 
 const Show = ({ character, comp_id }) => {
-  // To handle show component
   const handleDisplay = () => {
     const el = document.getElementById(character.active);
     el.style.display = "inline-block";
@@ -22,7 +21,6 @@ const Show = ({ character, comp_id }) => {
   );
 };
 
-// mapping state to component
 const mapStateToProps = (state) => {
   return {
     character: state.character,
