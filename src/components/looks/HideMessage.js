@@ -16,9 +16,9 @@ const HideMessage = ({ character, comp_id }) => {
       <div
         id={comp_id}
         onClick={() => displayMessage()}
-        className="rounded bg-purple-700 text-center text-white max-w-content p-1 my-3"
+        className="text-center rounded bg-blue-700 text-white px-2 py-1 my-2 text-sm cursor-pointer mx-auto"
       >
-        Hide Message
+        Clear Message
       </div>
     </Paper>
   );

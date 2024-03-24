@@ -5,16 +5,12 @@ import { motionComponents, looksComponents } from "./SidebarConstants";
 
 export default function Sidebar() {
   return (
-    <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200">
-      <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
-        Side Bar
-      </div>
-
-      <div className="font-bold"> {"Motion"} </div>
+    <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200 items-center">
+      <div> {"Motion"} </div>
       <Droppable droppableId="sideArea-motion" type="COMPONENTS">
         {(provided) => (
           <ul
-            className="sideArea-motion my-3"
+            className="sideArea-motion my-3 "
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
@@ -43,7 +39,7 @@ export default function Sidebar() {
         )}
       </Droppable>
 
-      <div className="font-bold"> {"Looks"} </div>
+      <div> {"Looks"} </div>
       <Droppable droppableId="sideArea-looks" type="COMPONENTS">
         {(provided) => (
           <ul

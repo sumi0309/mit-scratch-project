@@ -1,14 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { getComponent } from "./getComponents";
 import { createStyles, makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import { blue } from "@material-ui/core/colors";
+import { yellow } from "@material-ui/core/colors";
 import Paper from "@material-ui/core/Paper";
+import Icon from "./Icon";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -20,16 +18,16 @@ const useStyles = makeStyles(() =>
 
 const RunButton = withStyles((theme) => ({
   root: {
-    color: theme.palette.getContrastText(blue[700]),
-    backgroundColor: blue[800],
+    color: theme.palette.getContrastText(yellow[800]),
+    backgroundColor: yellow[800],
     fontSize: "13px",
     "&:hover": {
-      backgroundColor: blue[800],
+      backgroundColor: yellow[900],
     },
   },
 }))(Button);
 
-function MidArea({ area_list, add_list, event_values }) {
+function MidArea({ area_list }) {
   const classes = useStyles();
   const eventFire = (el, etype) => {
     if (el && el.fireEvent) {
@@ -61,15 +59,13 @@ function MidArea({ area_list, add_list, event_values }) {
   return (
     <div className="flex-1 h-full overflow-auto p-3">
       <div className="flex justify-between">
-        <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
-          Mid Area
+        <div className="italic font-serif text-base">
+          {"Drop the components below to run together!"}
         </div>
-
         <div className="text-center flex flex-column mb-5">
           <RunButton
             variant="contained"
             className={classes.button}
-            startIcon={<PlayArrowIcon />}
             onClick={() =>
               handleClick(
                 area_list?.midAreaLists[0]?.comps,
@@ -77,10 +73,13 @@ function MidArea({ area_list, add_list, event_values }) {
               )
             }
           >
-            Run{" "}
+            <div className="text-white">{"When "}</div>
+            <Icon name="flag" size={15} className="text-green-600 mx-2" />
+            <div className="text-white">{"Clicked"}</div>
           </RunButton>
         </div>
       </div>
+
       <div className="grid grid-flow-col" style={{ height: "88%" }}>
         {area_list?.midAreaLists?.map((l) => {
           return (
@@ -137,7 +136,6 @@ function MidArea({ area_list, add_list, event_values }) {
 const mapStateToProps = (state) => {
   return {
     area_list: state.list,
-    event_values: state.event,
   };
 };
 

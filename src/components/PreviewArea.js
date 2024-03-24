@@ -2,6 +2,9 @@ import React from "react";
 import CatSprite from "./CatSprite";
 import { connect } from "react-redux";
 import { setActive } from "../redux/character/actions";
+import Show from "../components/looks/Show";
+import Hide from "../components/looks/Hide";
+import HideMessage from "../components/looks/HideMessage";
 
 function PreviewArea({ character }) {
   var pos1 = 0,
@@ -44,13 +47,13 @@ function PreviewArea({ character }) {
 
   return (
     <div
-      className="w-full flex-none h-full overflow-y-auto p-3"
+      className="w-full flex-none h-full overflow-y-auto p-3 flex flex-col items-center"
       id="preview_area"
     >
-      <div className="flex justify-between mb-10">
-        <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
-          Preview Area
-        </div>
+      <div className="w-full flex justify-between mb-10">
+        <Show></Show>
+        <HideMessage></HideMessage>
+        <Hide></Hide>
       </div>
       <div className="flex justify-around h-4/5">
         {character.characters.map((x, i) => {
@@ -60,7 +63,7 @@ function PreviewArea({ character }) {
               key={i}
               className={`absolute`}
               onMouseDown={(e) => dragMouseDown(e, `${x.id}-${i}`)}
-              style={{ top: "250px", left: "75px" }}
+              style={{ top: "200px", left: "250px" }}
             >
               <div id={`${x.id}-div`} className="character">
                 <div

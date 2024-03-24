@@ -19,7 +19,7 @@ const Size = ({ character, comp_id }) => {
 
   return (
     <Paper elevation={3}>
-      <div className="text-center rounded bg-purple-500 p-2 my-3">
+      <div className="text-center rounded bg-blue-700 p-2 my-3">
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Size:</div>
           <input
@@ -35,7 +35,7 @@ const Size = ({ character, comp_id }) => {
         </div>
         <div
           id={comp_id}
-          className="text-center bg-purple-700 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+          className="text-center bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
           onClick={() => changeSize()}
         >
           Size {state.scale}

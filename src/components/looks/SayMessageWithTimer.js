@@ -32,7 +32,7 @@ const SayMessageWithTimer = ({ character, comp_id }) => {
 
   return (
     <Paper elevation={3}>
-      <div className="rounded text-center bg-purple-500 p-2 my-3">
+      <div className="rounded text-center bg-blue-500 p-2 my-3">
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Message</div>
           <input
@@ -59,7 +59,7 @@ const SayMessageWithTimer = ({ character, comp_id }) => {
         </div>
         <div
           id={comp_id}
-          className="flex flex-row flex-wrap text-center bg-purple-700 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+          className="flex flex-row flex-wrap text-center bg-blue-400 text-white px-2 py-1 my-2 text-sm cursor-pointer"
           onClick={() => displayMessage()}
         >
           {`Say ${state.timer_message}`}

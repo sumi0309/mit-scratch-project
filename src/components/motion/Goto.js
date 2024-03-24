@@ -16,9 +16,9 @@ const GotoXY = ({ character, comp_id }) => {
   };
   return (
     <Paper elevation={3}>
-      <div className="text-center rounded bg-blue-500 p-2 my-3">
+      <div className="text-center rounded bg-yellow-400 p-2 my-3">
         <div className="grid grid-cols-2 my-2">
-          <div className="text-white"> X</div>
+          <div className="text-white"> Goto X</div>
           <input
             className="mx-2 p-1 py-0 text-center"
             type="number"
@@ -30,7 +30,7 @@ const GotoXY = ({ character, comp_id }) => {
           />
         </div>
         <div className="grid grid-cols-2 my-2">
-          <div className="text-white">Y</div>
+          <div className="text-white">Goto Y</div>
           <input
             className="mx-2 p-1 py-0 text-center"
             type="number"
@@ -43,7 +43,7 @@ const GotoXY = ({ character, comp_id }) => {
         </div>
         <div
           id={comp_id}
-          className="text-center bg-blue-700 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+          className="text-center bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
           onClick={() => gotoXY()}
         >
           Go to X : {state.goto_x} Y : {state.goto_y}

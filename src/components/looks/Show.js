@@ -12,10 +12,10 @@ const Show = ({ character, comp_id }) => {
     <Paper elevation={3}>
       <div
         id={comp_id}
-        className="rounded text-center bg-purple-700 text-white px-2 py-1 my-2 text-sm cursor-pointer mx-auto"
+        className="rounded text-center bg-blue-700 text-white px-2 py-1 my-2 text-sm cursor-pointer mx-auto"
         onClick={() => handleDisplay()}
       >
-        Show
+        Sprite Appear
       </div>
     </Paper>
   );

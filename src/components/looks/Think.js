@@ -31,7 +31,7 @@ const ThinkMessage = ({ character, comp_id }) => {
 
   return (
     <Paper elevation={3}>
-      <div className="rounded text-center bg-purple-700 p-2 my-3">
+      <div className="rounded text-center bg-blue-400 p-2 my-3">
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Message</div>
           <input
@@ -46,7 +46,7 @@ const ThinkMessage = ({ character, comp_id }) => {
         </div>
         <div
           id={comp_id}
-          className="flex text-center flex-row flex-wrap bg-purple-900 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+          className="flex text-center flex-row flex-wrap bg-blue-300 text-white px-2 py-1 my-2 text-sm cursor-pointer"
           onClick={() => displayMessage()}
         >
           {`Think ${state.message}`}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setCharacterAngle } from "../../redux/character/actions";
-import UndoIcon from "@material-ui/icons/Undo";
+import Icon from "../Icon";
 import Paper from "@material-ui/core/Paper";
 
 const TurnAntiClockWise = ({ character, characterAngle, comp_id }) => {
@@ -21,9 +21,9 @@ const TurnAntiClockWise = ({ character, characterAngle, comp_id }) => {
 
   return (
     <Paper elevation={3}>
-      <div className="text-center rounded bg-blue-500 p-2 my-3">
+      <div className="text-center rounded bg-yellow-300 p-2 my-3">
         <div className="grid grid-cols-2">
-          <div className="text-white">Rotate By:</div>
+          <div className="text-white">AntiClockwise angle:</div>
           <input
             className="mx-2 p-1 py-0 text-center"
             type="number"
@@ -35,12 +35,12 @@ const TurnAntiClockWise = ({ character, characterAngle, comp_id }) => {
         </div>
         <div
           id={comp_id}
-          className={`flex bg-blue-700 text-white px-2 py-1 mt-3 mb-1 text-sm cursor-pointer`}
+          className={`flex bg-yellow-500 text-white px-2 py-1 mt-3 mb-1 text-sm cursor-pointer`}
           onClick={() => handleClick()}
         >
           <div className="flex mx-auto">
             Turn
-            <UndoIcon className="mx-2" />
+            <Icon name="undo" size={15} className="text-white mx-2" />
             {angle} degrees
           </div>
         </div>
