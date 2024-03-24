@@ -85,7 +85,7 @@ function MidArea({ area_list }) {
           return (
             <div className="w-100 h-full" key={l.id}>
               <Paper className="p-4 h-full">
-                <div className="w-full h-full">
+                <div className="w-full h-full" id="innerContainerBox">
                   <Droppable droppableId={l.id} type="COMPONENTS">
                     {(provided) => {
                       return (
@@ -98,7 +98,6 @@ function MidArea({ area_list }) {
                             l.comps.map((x, i) => {
                               let str = `${x}`;
                               let component_id = `comp${str}-${l.id}-${i}`;
-
                               return (
                                 <Draggable
                                   key={`${str}-${l.id}-${i}`}
@@ -118,6 +117,7 @@ function MidArea({ area_list }) {
                                 </Draggable>
                               );
                             })}
+
                           {provided.placeholder}
                         </ul>
                       );

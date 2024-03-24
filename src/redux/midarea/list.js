@@ -1,8 +1,8 @@
 const initialState = {
   midAreaLists: [
     {
-      id: "midAreaList-0",
-      comps: ["MOVE"],
+      id: "none",
+      comps: [""],
     },
   ],
 };
